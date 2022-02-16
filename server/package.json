@@ -11,7 +11,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@xboxreplay/xboxlive-api": "^3.4.3",
+    "@xboxreplay/xboxlive-auth": "^4.0.0",
     "apollo-server-express": "^3.6.2",
+    "bcryptjs": "^2.4.3",
     "dotenv": "^16.0.0",
     "express": "^4.17.2",
     "graphql": "^16.3.0",
