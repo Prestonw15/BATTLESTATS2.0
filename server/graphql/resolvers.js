@@ -1,14 +1,12 @@
 import db from '../db/index.js';
 import auth from '../utils/auth.js';
-import  User  from '../graphql/typeDefs.js';
 
 const resolvers = {
   Query: {
     me: async (parent, args, context) => {
       if (context.user) {
-        const userData = await User.findOne({ _id: context.user._id })
+        const userData = await db.models.User.findOne({ _id: context.user._id })
           .select('-__v -password')
-          .populate('thoughts')
           .populate('friends');
 
         return userData;
@@ -16,14 +14,14 @@ const resolvers = {
 
       throw new AuthenticationError('Not logged in');
     },
-    users: async () => {
-      return User.find()
+    users: async (parent) => {
+      console.log(db)
+      return db.models.User.find({})
         .select('-__v -password')
-        .populate('thoughts')
         .populate('friends');
     },
     user: async (parent, { username }) => {
-      return User.findOne({ username })
+      return db.models.User.findOne({ username })
         .select('-__v -password')
         .populate('friends')
         .populate('thoughts');
@@ -39,13 +37,14 @@ const resolvers = {
 
   Mutation: {
     addUser: async (parent, args) => {
-      const user = await User.create(args);
-      const token = signToken(user);
+      console.log(args)
+      const user = await db.models.User.create(args);
+      // const token = signToken(user);
 
-      return { token, user };
+      return { user };
     },
     login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+      const user = await db.models.User.findOne({ email });
 
       if (!user) {
         throw new AuthenticationError('Incorrect credentials');

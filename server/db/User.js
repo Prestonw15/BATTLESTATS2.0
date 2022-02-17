@@ -2,10 +2,21 @@ import mongoose from 'mongoose';
 
 
 const UserSchema = new mongoose.Schema({
-  name: {
+  username: {
     type: String,
     required: true
   },
+  email: {
+    type: String,
+    isRequired: true,
+    isUnique: true,
+    match: [/.+@.+\..+/, 'Must match an email address!']
+},
+password: {
+  type: String,
+  isRequired: true,
+  minLength: 8
+},
   friends: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
 });
 
