@@ -1,32 +1,107 @@
 import db from '../db/index.js';
 import auth from '../utils/auth.js';
+import  User  from '../graphql/typeDefs.js';
 
 const resolvers = {
   Query: {
-    books: async (parent, args, context) => {
-      console.log(context);
-      if (!context.user) throw new Error('Unauthenticated user');
-      return await db.models.Book.find({}).populate('author');
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await User.findOne({ _id: context.user._id })
+          .select('-__v -password')
+          .populate('thoughts')
+          .populate('friends');
+
+        return userData;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
+    users: async () => {
+      return User.find()
+        .select('-__v -password')
+        .populate('thoughts')
+        .populate('friends');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username })
+        .select('-__v -password')
+        .populate('friends')
+        .populate('thoughts');
+    },
+    thoughts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return Thought.find(params).sort({ createdAt: -1 });
+    },
+    thought: async (parent, { _id }) => {
+      return Thought.findOne({ _id });
+    }
   },
 
   Mutation: {
-    login: async (parent, args) => {
-      try {
-        const author = await db.models.Author.findOne({ name: args.name });
+    addUser: async (parent, args) => {
+      const user = await User.create(args);
+      const token = signToken(user);
 
-        if (!author) throw new Error('No author found');
+      return { token, user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
 
-        const token = auth.signToken({ _id: author._id, name: author.name });
-        console.log(token);
-
-        return { token, author };
-      } catch (error) {
-        console.log(error);
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
       }
+
+      const correctPw = await user.isCorrectPassword(password);
+
+      if (!correctPw) {
+        throw new AuthenticationError('Incorrect credentials');
+      }
+
+      const token = signToken(user);
+      return { token, user };
+    },
+    addThought: async (parent, args, context) => {
+      if (context.user) {
+        const thought = await Thought.create({ ...args, username: context.user.username });
+
+        await User.findByIdAndUpdate(
+          { _id: context.user._id },
+          { $push: { thoughts: thought._id } },
+          { new: true }
+        );
+
+        return thought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addReaction: async (parent, { thoughtId, reactionBody }, context) => {
+      if (context.user) {
+        const updatedThought = await Thought.findOneAndUpdate(
+          { _id: thoughtId },
+          { $push: { reactions: { reactionBody, username: context.user.username } } },
+          { new: true, runValidators: true }
+        );
+
+        return updatedThought;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
+    },
+    addFriend: async (parent, { friendId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { friends: friendId } },
+          { new: true }
+        ).populate('friends');
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
     }
   }
-
 };
 
 export default resolvers;

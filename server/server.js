@@ -32,4 +32,3 @@ db.connection.once("open", () => {
     );
   });
 });
-
