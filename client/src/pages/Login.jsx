@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { LOGIN_MUTATION } from '../graphql/mutations';
+import { LOGIN_USER } from '../graphql/mutations';
 import Auth from '../graphql/auth';
+import Navbar from '../components/Navbar';
 
 const Login = (props) => {
-  const [email, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [login, { data, loading, error }] = useMutation(LOGIN_MUTATION);
-  const logmyassin = () => {
+  const [login, { data, loading, error }] = useMutation(LOGIN_USER);
+  const logmyassin = async (e) => {
+    e.preventDefault()
      await login({
       variables: {email: email, password: password }
     }) 
@@ -20,24 +22,26 @@ const Login = (props) => {
     }
   }, [data]);
   
-  return ( 
-    <div class="form" id="login">
-      <form onsubmit= {logmyassin}>
+  return ( <>
+      <Navbar/>
+    <div className="form" id="login">
+      <form onSubmit= {logmyassin}>
       
-        <div class="container">
-          <label for="uname"><b>Username</b></label>
+        <div className="container">
+          <label htmlFor="uname"><b>Username</b></label>
           <input type="text" placeholder="Enter Email" name="uname" required onChange={(e) => {setEmail(e.target.value)}}/>
       
-          <label for="psw"><b>Password</b></label>
+          <label htmlFor="psw"><b>Password</b></label>
           <input type="password" placeholder="Enter Password" name="psw" required onChange={(e) => {setPassword(e.target.value)}}/>
       
           <button type="submit">Login</button>
         </div>
       
-        <div class="container" style="background-color:#f1f1f1">
+        <div className="container">
         </div>
       </form>
       </div>
+      </>
   );
 };
 

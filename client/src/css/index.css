@@ -1,4 +1,4 @@
-@charset "UTF-8";
+/* @charset "UTF-8"; */
 /* Body */
 
 .factapi {
@@ -556,6 +556,7 @@ form {
 	  text-align: center;
 	  max-width: 250px;
 	  max-height: 250px;
+  }
   
   /* Add padding to containers */
   .container {

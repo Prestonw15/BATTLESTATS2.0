@@ -1,5 +1,7 @@
 import db from '../db/index.js';
 import auth from '../utils/auth.js';
+import { AuthenticationError } from'apollo-server-express';
+
 
 const resolvers = {
   Query: {
@@ -42,13 +44,13 @@ const resolvers = {
         throw new AuthenticationError('Incorrect credentials');
       }
 
-      const correctPw = await user.isCorrectPassword(password);
+      // const correctPw = await user.isCorrectPassword(password);
 
-      if (!correctPw) {
-        throw new AuthenticationError('Incorrect credentials');
-      }
+      // if (!correctPw) {
+      //   throw new AuthenticationError('Incorrect credentials');
+      // }
 
-      const token = signToken(user);
+      const token = auth.signToken(user);
       return { token, user };
     },
     addFriend: async (parent, { friendId }, context) => {

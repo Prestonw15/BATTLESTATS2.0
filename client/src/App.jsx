@@ -1,14 +1,23 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; // v5
+import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 
+const httpLink = createHttpLink({
+  uri: '/graphql'
+});
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+});
 function App() {
   const [user, setUser] = useState({ token: '', author: null });
   console.log(user);
   return (
+    <ApolloProvider client={client}>
     <Router>
-      <div>
+      {/* <div>
         <header>
           <h1>Library App</h1>
           <ul>
@@ -23,13 +32,13 @@ function App() {
             </li>
           </ul>
         </header>
-      </div>
-
+      </div> */}
       <Switch>
+        <Route exact path="/" render={() => <Login/>} />
         <Route exact path="/Dashboard" render={() => <Dashboard user={user} />} />
-        <Route exact path="/" render={() => <Login setUser={setUser} />} />
       </Switch>
     </Router>
+    ,/</ApolloProvider>
   );
 }
 
