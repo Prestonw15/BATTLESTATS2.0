@@ -13,10 +13,10 @@ function App() {
           <h1>Library App</h1>
           <ul>
             <li>
-              <Link to="/">Dashboard</Link>
+              <Link to="/">Login</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li>
               <a href="https://www.google.com">Go to Google</a>
@@ -26,8 +26,8 @@ function App() {
       </div>
 
       <Switch>
-        <Route exact path="/" render={() => <Dashboard user={user} />} />
-        <Route exact path="/login" render={() => <Login setUser={setUser} />} />
+        <Route exact path="/Dashboard" render={() => <Dashboard user={user} />} />
+        <Route exact path="/" render={() => <Login setUser={setUser} />} />
       </Switch>
     </Router>
   );
