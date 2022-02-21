@@ -1,11 +1,10 @@
 import React from "react";
-import "../css/loginstyle.css"
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
 return( <>
-    <header><a href="">
-    <img className="logo" src="./assets/images/battlestats_logo.svg"/>
-    </a>
+    <header>
+    <Link to="./Dashboard"> <img className="logo" src="./assets/images/battlestats_logo.svg"/> </Link>
     <nav>
       <ul>
         <li><Link to="./steam">STEAM</Link></li>
