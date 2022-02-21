@@ -8,10 +8,10 @@ return( <>
     </a>
     <nav>
       <ul>
-        <li><a href="./steam.html">STEAM</a></li>
-        <li><a href="./xbox.html">XBOX</a></li>
-        <li><a href="./playstation.html">PLAYSTATION</a></li>
-        <li><a href="./messaging.html">MESSAGING</a></li>
+        <li><Link to="./steam">STEAM</Link></li>
+        <li><Link to="./xbox">XBOX</Link></li>
+        <li><Link to="./playstation">PLAYSTATION</Link></li>
+        <li><Link to="./messaging">MESSAGING</Link></li>
       </ul>
     </nav>
   </header>
