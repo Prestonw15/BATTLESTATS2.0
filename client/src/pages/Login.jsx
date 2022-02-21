@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [login, { data, loading, error }] = useMutation(LOGIN_USER);
+  const [login, { data, error }] = useMutation(LOGIN_USER);
   const logmyassin = async (e) => {
     e.preventDefault()
      await login({
@@ -39,15 +39,15 @@ const Login = (props) => {
       </div>
 
       <div class="col">
-        <a href="#" class="fb btn">
+        <Link to="Facebook" class="fb btn">
           <i class="fa fa-facebook fa-fw"></i> Login with Facebook
-        </a>
-        <a href="#" class="twitter btn">
+        </Link>
+        <Link to="Twitter" class="twitter btn">
           <i class="fa fa-twitter fa-fw"></i> Login with Twitter
-        </a>
-        <a href="#" class="google btn">
+        </Link>
+        <Link to="google" class="google btn">
           <i class="fa fa-google fa-fw"></i> Login with Google+
-        </a>
+        </Link>
       </div>
 
       <div class="col">
@@ -70,7 +70,7 @@ const Login = (props) => {
       <Link to="./signup"  class="btn">Sign up</Link>
     </div>
     <div class="col">
-      <Link to="#" style="color:white" class="btn">Forgot password?</Link>
+      <Link to="#" class="btn">Forgot password?</Link>
     </div>
   </div>
 </div>
