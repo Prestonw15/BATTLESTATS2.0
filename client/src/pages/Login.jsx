@@ -30,7 +30,7 @@ const Login = (props) => {
       <form onSubmit= {logmyassin}>
       
         <div className="container">
-          <label htmlFor="uname"><b>Username</b></label>
+          <label htmlFor="uname"><b>Email</b></label>
           <input type="text" placeholder="Enter Email" name="uname" required onChange={(e) => {setEmail(e.target.value)}}/>
       
           <label htmlFor="psw"><b>Password</b></label>

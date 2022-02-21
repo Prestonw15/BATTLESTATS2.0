@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import '../assests/css/index.css';
 
 const Dashboard = (props) => {
 
