@@ -7,7 +7,7 @@ import Footer from '../components/Footer';
 const PS = () => {
         return ( <>
     
-    <div className='container'>
+    <div className={styles.container}>
         <Navbar/>
         
         <section class="hero" id="hero">
