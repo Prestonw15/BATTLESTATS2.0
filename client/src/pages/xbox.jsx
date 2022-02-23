@@ -11,7 +11,7 @@ const Xbox = () => {
         <Navbar/>
 
         <section class="hero" id="hero">
-            <img src={require('../assests/images/xbox-logo.svg').default} alt="xbox Logo" class="cards" />
+            <img src={require('../assets/images/Xbox-Logo.wine.svg').default} alt="xbox Logo" class="cards" />
              <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
          </section>
 

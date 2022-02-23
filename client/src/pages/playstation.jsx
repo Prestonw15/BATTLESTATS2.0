@@ -11,7 +11,7 @@ const PS = () => {
         <Navbar/>
         
         <section class="hero" id="hero">
-            <img src="../assets/images/playstation-logo.jpg" alt="playstation logo" class="cards" />
+            <img src={require('../assets/images/playstation-logo.jpg').default} alt="playstation logo" class="cards" />
              <p class="tagline">one site for all of your gaming stats&nbsp; $nbsp;</p>
              </section>
         <h3>New Users, sign in with your playstation username</h3>
