@@ -10,7 +10,7 @@ const Steam = () => {
         <Navbar/>
         
         <section class="hero" id="hero">
-            <img src="../assets/images/steam-icon.svg" alt="steam logo" class="cards" />
+            <img src={require('../assets/images/steam-icon.svg').default} alt="steam logo" class="cards" />
              <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
          </section>
         <h3>New Users, Please enter you steam username</h3>
