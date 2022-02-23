@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
 return( <>
     <header>
-    <Link to="./Dashboard"> <img className="logo" src="./assets/images/battlestats_logo.svg" alt="Battlestats logo"/> </Link>
-    <nav>
+    {/* <Link to="./Dashboard"> <img className="logo" src="./assets/images/battlestats_logo.svg" alt="Battlestats logo"/> </Link> */}
+    {/* <nav className="nav"> */}
+      {/* <div className={"styles.container"}/> */}
+      <img src={require('../assets/images/battlestats_logo.svg').default} alt="BattleStats" className="logo" />
+      <nav className="container">
       <ul>
         <li><Link to="./steam">STEAM</Link></li>
         <li><Link to="./xbox">XBOX</Link></li>

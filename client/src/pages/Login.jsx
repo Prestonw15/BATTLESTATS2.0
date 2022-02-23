@@ -7,6 +7,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import styles from '../assets/css/loginstyle.css';
 
+
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -27,10 +28,11 @@ const Login = (props) => {
   
   return ( <>
       <Navbar/>
+
     <div className={styles.form} id="login">
       <form onSubmit= {logmyassin}>
 
-      <div className={styles.container}>
+      <div className={styles.col}>
          <form action="/action_page.php">
             <div className={styles.row}>
               <h2>Login with Social Media or Manually</h2>
