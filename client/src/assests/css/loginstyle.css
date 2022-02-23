@@ -11,6 +11,11 @@ header {
   color: #ff8500;
   text-align: center;
 }
+
+.hero {
+  background-color: #fff;
+  text-align: center;
+}
 section {
   padding: 60px;
 }
