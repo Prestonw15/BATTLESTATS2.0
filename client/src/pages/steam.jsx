@@ -3,13 +3,14 @@ import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import styles from '../assets/css/steam.css';
 
 const Steam = () => {
         return ( <>
     <div classname='container'>
         <Navbar/>
         
-        <section class="hero" id="hero">
+        <section className={styles.hero} id="hero">
             <img src={require('../assets/images/steam-icon.svg').default} alt="steam logo" class="cards" />
              <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
          </section>
