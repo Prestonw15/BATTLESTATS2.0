@@ -6,7 +6,7 @@ const Login = (props) => {
   const [username, setUsername] = useState('');
   const [login, { data, loading, error }] = useMutation(LOGIN_MUTATION);
 
-  useEffect(() => {
+  useEffect(() => {z
     if (data && data.login) {
       props.setUser({ token: data.login.token, author: data.login.author });
     }

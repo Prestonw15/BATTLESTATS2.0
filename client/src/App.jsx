@@ -2,9 +2,11 @@ import React, { useState } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; // v5
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import useLocalStorage from '../hooks/userLocalStorage';
 
 function App() {
   const [user, setUser] = useState({ token: '', author: null });
+  const [id, setId] = useLocalStorage()
   console.log(user);
   return (
     <Router>
