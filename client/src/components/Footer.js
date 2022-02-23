@@ -1,11 +1,11 @@
 import React from "react";
-
+import styles from '../assests/css/loginstyle.css';
 
 const Footer = () => {
     return( <>
     <footer>
-  <article className="footer_column"></article>
-    <div className="copyright">
+  <article className={styles.footer_column}></article>
+    <div className={styles.copyright}>
       &copy;2021- <strong>Battlestats&nbsp;</strong>
     </div>
   </footer>

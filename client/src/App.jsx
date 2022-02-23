@@ -12,7 +12,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 function App() {
-  const [user, setUser] = useState({ token: '', author: null });
+  const [user] = useState({ token: '', author: null });
   console.log(user);
   return (
     <ApolloProvider client={client}>
