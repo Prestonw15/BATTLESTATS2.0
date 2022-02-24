@@ -33,9 +33,9 @@ const resolvers = {
     addUser: async (parent, args) => {
       console.log(args)
       const user = await db.models.User.create(args);
-      // const token = signToken(user);
+      const token = signToken(user);
 
-      return { user };
+      return { user, token };
     },
     login: async (parent, { email, password }) => {
       const user = await db.models.User.findOne({ email });

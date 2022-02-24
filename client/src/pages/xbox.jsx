@@ -3,6 +3,7 @@ import { Redirect } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
+import styles from '../assets/css/xbox.css';
 
 const Xbox = () => {
         return ( <>
