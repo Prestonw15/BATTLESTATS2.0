@@ -10,6 +10,7 @@ header {
   background-color: #3c096c;
   color: #ff8500;
   text-align: center;
+
 }
 section {
   padding: 60px;
@@ -121,6 +122,9 @@ input[type=submit]:hover {
   margin-top: 6px;
 }
 
+.logo {
+  width: 500px;
+}
 /* Clear floats after the columns */
 .row:after {
   content: "";
@@ -159,7 +163,12 @@ input[type=submit]:hover {
   background-color: #666;
   border-radius: 0px 0px 4px 4px;
 }
-
+.hero {
+  text-align: center;
+  opacity: 80%;
+  background: linear-gradient(#215985, #56B1EF);
+  
+}
 /* Responsive layout - when the screen is less than 650px wide, make the two columns stack on top of each other instead of next to each other */
 @media screen and (max-width: 650px) {
   .col {
