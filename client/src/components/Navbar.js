@@ -8,7 +8,7 @@ return( <>
     {/* <nav className="nav"> */}
       {/* <div className={"styles.container"}/> */}
       <img src={require('../assets/images/battlestats_logo.svg').default} alt="BattleStats" className="logo" />
-      <nav className="container">
+      <nav className="nav">
       <ul>
         <li><Link to="./steam">STEAM</Link></li>
         <li><Link to="./xbox">XBOX</Link></li>
