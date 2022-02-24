@@ -1,4 +1,4 @@
-import psn-api from "psn-api";
+// import psn-api from "psn-api";
 import { exchangeCodeForAccessToken} from "psn-api";
 import { exchangeNpssoForCode } from "psn-api";
 

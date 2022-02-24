@@ -13,7 +13,7 @@ const Xbox = () => {
 
         <section className={styles.hero} id="hero">
             <img src={require('../assets/images/Xbox-Logo.wine.svg').default} alt="xbox Logo" class="cards" />
-             <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
+             <p className='tagline'>one site for all of your gaming stats&nbsp; &nbsp;</p>
          </section>
 
         <h3>New Users, Click <a target="_blank" href="https://cors-anywhere.herokuapp.com/corsdemo">this </a>link and hit 'Request temporary access to the demo server' before continuing</h3>
@@ -23,7 +23,7 @@ const Xbox = () => {
                 <label for="Username"> Enter XBOX Gamertag</label>
                 <input type="text" placeholder="XBOX Gamertag" name="username" id="Username" class="login-input"/>
                     <p id="error"></p>
-                    <button id="loginBtn" class="login-input" type="submit">Login</button>
+                    <button id="loginBtn" className='login-input' type="submit">Login</button>
             </form>
         </div>
 

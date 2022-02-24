@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../assets/css/loginstyle.css";
 
 const Navbar = () => {
 return( <>
     <header>
-    <Link to="./Dashboard"> <img className="logo" src="./assets/images/battlestats_logo.svg" alt="Battlestats logo"/> </Link>
+    {/* <Link to="./Dashboard"> <img className="logo" src={require('./assets/images/battlestats_logo.svg').defualt} alt="Battlestats logo"/> </Link> */}
     <nav>
       <ul>
         <li><Link to="./steam">STEAM</Link></li>
@@ -14,9 +15,9 @@ return( <>
       </ul>
     </nav>
   </header>
-    <section class="hero" id="hero">
-    <h2 class="hero_header">BATTLE&nbsp; <span class="light">STATS</span></h2>
-    <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
+    <section className='hero' id="hero">
+    <h2 className='hero_header'>BATTLE&nbsp; <span className='light'>STATS</span></h2>
+    <p className='tagline'>one site for all of your gaming stats&nbsp; &nbsp;</p>
    
   </section>
   </>

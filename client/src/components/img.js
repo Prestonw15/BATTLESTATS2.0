@@ -1,6 +1,6 @@
 import React from "react"
 const Img = () => {
-return ( <img src= './assets' alt="" width="500" height="600" />
+return ( <img src= './assets' alt="" width="500" height="600" />)
 
 // const Footer = () => {
 //     return( <>
