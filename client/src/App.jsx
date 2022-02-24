@@ -3,6 +3,11 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; // v5
 import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
+import Steam from './pages/steam';
+import Xbox from './pages/xbox';
+import Playstation from './pages/playstation';
+import Messaging from './pages/messaging';
+import Signup from './pages/signup';
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -36,6 +41,13 @@ function App() {
       <Switch>
         <Route exact path="/" render={() => <Login/>} />
         <Route exact path="/Dashboard" render={() => <Dashboard user={user} />} />
+        <Route exact path="/Steam" render={() => <Steam user={user} />} />
+        <Route exact path="/Xbox" render={() => <Xbox user={user} />} />
+        <Route exact path="/Playstation" render={() => <Playstation user={user} />} />
+        <Route exact path="/Messaging" render={() => <Messaging user={user} />} />
+        <Route exact path="/Signup" render={() => <Signup user={user} />} />
+        
+        
       </Switch>
     </Router>
     ,/</ApolloProvider>

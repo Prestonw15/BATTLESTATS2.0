@@ -11,7 +11,7 @@ return( <>
         <li><Link to="./steam">STEAM</Link></li>
         <li><Link to="./xbox">XBOX</Link></li>
         <li><Link to="./playstation">PLAYSTATION</Link></li>
-        <li><Link to="./messaging">MESSAGING</Link></li>
+        <li><Link to="./Messaging">MESSAGING</Link></li>
       </ul>
     </nav>
   </header>
