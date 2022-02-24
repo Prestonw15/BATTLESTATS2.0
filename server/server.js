@@ -19,7 +19,7 @@ const server = new ApolloServer({
 const io = require ('socket.io')(server, {cors:{origin: "*"}})
 await server.start();
 
-const io = require('socket.io')(5000)
+
 
 io.on('connection', socket => {
   const id = socket.handshake.query.id
