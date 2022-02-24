@@ -5,7 +5,7 @@ import Auth from '../graphql/auth';
 import { Link } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import styles from '../assets/css/loginstyle.css';
+import styles from '../assets/loginstyle.css';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
@@ -27,7 +27,7 @@ const Login = (props) => {
   
   return ( <>
       <Navbar/>
-    <div className={styles.form} id="login">
+    <div className="form" id="login">
       <form onSubmit= {logmyassin}>
 
       <div className={styles.container}>
@@ -38,7 +38,7 @@ const Login = (props) => {
             <span class="vl-innertext">or</span>
       </div>
 
-      <div className={styles.col}>
+      <div class="col">
         <Link to="Facebook" class="fb btn">
           <i className='fa fa-facebook fa-fw'></i> Login with Facebook
         </Link>
@@ -46,7 +46,7 @@ const Login = (props) => {
           <i className='fa fa-twitter fa-fw'></i> Login with Twitter
         </Link>
         <Link to="google" class="google btn">
-          <i className='fa fa-google fa-fw'></i> Login with Google+
+          <i class="fa fa-google fa-fw"></i> Login with Google+
         </Link>
       </div>
 

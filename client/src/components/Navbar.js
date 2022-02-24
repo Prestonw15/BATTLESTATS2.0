@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../assets/css/loginstyle.css";
+import "../assets/loginstyle.css";
 
 const Navbar = () => {
 return( <>
     <header>
-    {/* <Link to="./Dashboard"> <img className="logo" src={require('./assets/images/battlestats_logo.svg').defualt} alt="Battlestats logo"/> </Link> */}
-    <nav>
+    {/* <Link to="./Dashboard"> <img className="logo" src="./assets/images/battlestats_logo.svg" alt="Battlestats logo"/> </Link> */}
+    {/* <nav className="nav"> */}
+      {/* <div className={"styles.container"}/> */}
+      <img src={require('../assets/images/battlestats_logo.svg').default} alt="BattleStats" className="logo" />
+      <nav className="nav">
       <ul>
         <li><Link to="./steam">STEAM</Link></li>
         <li><Link to="./xbox">XBOX</Link></li>
