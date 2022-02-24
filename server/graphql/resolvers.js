@@ -1,32 +1,72 @@
 import db from '../db/index.js';
 import auth from '../utils/auth.js';
+import { AuthenticationError } from'apollo-server-express';
+
 
 const resolvers = {
   Query: {
-    books: async (parent, args, context) => {
-      console.log(context);
-      if (!context.user) throw new Error('Unauthenticated user');
-      return await db.models.Book.find({}).populate('author');
+    me: async (parent, args, context) => {
+      if (context.user) {
+        const userData = await db.models.User.findOne({ _id: context.user._id })
+          .select('-__v -password')
+          .populate('friends');
+
+        return userData;
+      }
+
+      throw new AuthenticationError('Not logged in');
     },
+    users: async (parent) => {
+      console.log(db)
+      return db.models.User.find({})
+        .select('-__v -password')
+        .populate('friends');
+    },
+    user: async (parent, { username }) => {
+      return db.models.User.findOne({ username })
+        .select('-__v -password')
+        .populate('friends')
+    }
   },
 
   Mutation: {
-    login: async (parent, args) => {
-      try {
-        const author = await db.models.Author.findOne({ name: args.name });
+    addUser: async (parent, args) => {
+      console.log(args)
+      const user = await db.models.User.create(args);
+      // const token = signToken(user);
 
-        if (!author) throw new Error('No author found');
+      return { user };
+    },
+    login: async (parent, { email, password }) => {
+      const user = await db.models.User.findOne({ email });
 
-        const token = auth.signToken({ _id: author._id, name: author.name });
-        console.log(token);
-
-        return { token, author };
-      } catch (error) {
-        console.log(error);
+      if (!user) {
+        throw new AuthenticationError('Incorrect credentials');
       }
+
+      // const correctPw = await user.isCorrectPassword(password);
+
+      // if (!correctPw) {
+      //   throw new AuthenticationError('Incorrect credentials');
+      // }
+
+      const token = auth.signToken(user);
+      return { token, user };
+    },
+    addFriend: async (parent, { friendId }, context) => {
+      if (context.user) {
+        const updatedUser = await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { friends: friendId } },
+          { new: true }
+        ).populate('friends');
+
+        return updatedUser;
+      }
+
+      throw new AuthenticationError('You need to be logged in!');
     }
   }
-
 };
 
 export default resolvers;

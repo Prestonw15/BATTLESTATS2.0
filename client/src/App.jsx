@@ -1,37 +1,47 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'; // v5
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'; // v5
+import { ApolloProvider, ApolloClient, createHttpLink, InMemoryCache } from '@apollo/client';
 import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import useLocalStorage from '../hooks/userLocalStorage';
 
+const httpLink = createHttpLink({
+  uri: '/graphql'
+});
+const client = new ApolloClient({
+  link: httpLink,
+  cache: new InMemoryCache()
+});
 function App() {
   const [user, setUser] = useState({ token: '', author: null });
   const [id, setId] = useLocalStorage()
+  const [user] = useState({ token: '', author: null });
   console.log(user);
   return (
+    <ApolloProvider client={client}>
     <Router>
-      <div>
+      {/* <div>
         <header>
           <h1>Library App</h1>
           <ul>
             <li>
-              <Link to="/">Dashboard</Link>
+              <Link to="/">Login</Link>
             </li>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/Dashboard">Dashboard</Link>
             </li>
             <li>
               <a href="https://www.google.com">Go to Google</a>
             </li>
           </ul>
         </header>
-      </div>
-
+      </div> */}
       <Switch>
-        <Route exact path="/" render={() => <Dashboard user={user} />} />
-        <Route exact path="/login" render={() => <Login setUser={setUser} />} />
+        <Route exact path="/" render={() => <Login/>} />
+        <Route exact path="/Dashboard" render={() => <Dashboard user={user} />} />
       </Switch>
     </Router>
+    ,/</ApolloProvider>
   );
 }
 

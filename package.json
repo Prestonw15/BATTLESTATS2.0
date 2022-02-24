@@ -1,10 +1,14 @@
 {
-  "name": "BATTLESTATS2.0",
+  "name": "battlestats",
   "version": "1.0.0",
   "description": "It's the NEW and Improved battlestats Now WITH a Backend and implemented Messaging to communicate with all your friends",
   "main": "index.js",
   "scripts": {
-    "devStart": "nodemon server.js"
+    "devStart": "nodemon server.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
+    "build": "cd client && npm run build",
+    "start": "if-env NODE_ENV=production && cd server && npm start || npm run start:develop"
   },
   "repository": {
     "type": "git",
@@ -22,5 +26,6 @@
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
+
   }
 }

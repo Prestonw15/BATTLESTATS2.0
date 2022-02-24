@@ -4,6 +4,11 @@ import { ApolloServer } from 'apollo-server-express';
 import { typeDefs, resolvers } from './graphql/index.js';
 import auth from './utils/auth.js';
 import db from './db/index.js';
+import { authenticate } from '@xboxreplay/xboxlive-auth';
+
+authenticate('prestonwatson.15@gmail.com', '')
+	.then(console.info)
+	.catch(console.error);
 
 const app = express();
 const PORT = 5000;
@@ -50,4 +55,3 @@ db.connection.once("open", () => {
     );
   });
 });
-
