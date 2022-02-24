@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../assets/css/loginstyle.css";
 
 const Navbar = () => {
 return( <>
@@ -17,9 +18,9 @@ return( <>
       </ul>
     </nav>
   </header>
-    <section class="hero" id="hero">
-    <h2 class="hero_header">BATTLE&nbsp; <span class="light">STATS</span></h2>
-    <p class="tagline">one site for all of your gaming stats&nbsp; &nbsp;</p>
+    <section className='hero' id="hero">
+    <h2 className='hero_header'>BATTLE&nbsp; <span className='light'>STATS</span></h2>
+    <p className='tagline'>one site for all of your gaming stats&nbsp; &nbsp;</p>
    
   </section>
   </>

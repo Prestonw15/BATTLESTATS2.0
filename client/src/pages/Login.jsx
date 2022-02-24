@@ -40,37 +40,37 @@ const Login = (props) => {
 
       <div class="col">
         <Link to="Facebook" class="fb btn">
-          <i class="fa fa-facebook fa-fw"></i> Login with Facebook
+          <i className='fa fa-facebook fa-fw'></i> Login with Facebook
         </Link>
         <Link to="Twitter" class="twitter btn">
-          <i class="fa fa-twitter fa-fw"></i> Login with Twitter
+          <i className='fa fa-twitter fa-fw'></i> Login with Twitter
         </Link>
         <Link to="google" class="google btn">
           <i class="fa fa-google fa-fw"></i> Login with Google+
         </Link>
       </div>
 
-      <div class="col">
-        <div class="hide-md-lg">
+      <div className={styles.col}>
+        <div className='hide-md-lg'>
           <p>Or sign in manually:</p>
         </div>
 
-        <input type="text" placeholder="Enter Email" name="uname" required onChange={(e) => {setEmail(e.target.value)}}/>
+        {/* <input type="text" placeholder="Enter Email" name="uname" required onChange={(e) => {setEmail(e.target.value)}}/>
         <input type="password" placeholder="Enter Password" name="psw" required onChange={(e) => {setPassword(e.target.value)}}/>
-        <button type="submit">Login</button>
+        <button type="submit">Login</button> */}
       </div>
 
     </div>
   </form>
 </div>
 
-<div class="bottom-container">
-  <div class="row">
-    <div class="col">
-      <Link to="./signup"  class="btn">Sign up</Link>
+<div className='bottom-container'>
+  <div className='row'>
+    <div className='col'>
+      <Link to="./signup"  className='btn'>Sign up</Link>
     </div>
-    <div class="col">
-      <Link to="#" class="btn">Forgot password?</Link>
+    <div className='col'>
+      <Link to="#" className='btn'>Forgot password?</Link>
     </div>
   </div>
 </div>
