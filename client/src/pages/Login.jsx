@@ -5,7 +5,7 @@ import Auth from '../graphql/auth';
 import { Link } from "react-router-dom";
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import styles from '../assets/css/loginstyle.css';
+import styles from './assets/css/loginstyle.css';
 
 const Login = (props) => {
   const [email, setEmail] = useState('');
