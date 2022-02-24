@@ -1,5 +1,5 @@
 import React from "react";
-import styles from '../assests/css/loginstyle.css';
+import styles from '../assets/loginstyle.css';
 
 const Footer = () => {
     return( <>
