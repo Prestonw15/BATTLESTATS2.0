@@ -12,7 +12,7 @@ import Signup from './pages/signup';
 
 
 const httpLink = createHttpLink({
-  uri: '/graphql'
+  uri: 'https://git.heroku.com/battlestats.git/graphql'
 });
 const client = new ApolloClient({
   link: httpLink,
