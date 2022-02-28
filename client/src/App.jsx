@@ -18,7 +18,6 @@ const client = new ApolloClient({
 });
 function App() {
   const [user] = useState({ token: '', author: null });
-  console.log(user);
   return (
     <ApolloProvider client={client}>
     <Router>
