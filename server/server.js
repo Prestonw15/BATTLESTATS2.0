@@ -22,8 +22,12 @@ const server = new ApolloServer({
     return { user };
   }
 });
+
+server.start().then(() => {
+  server.applyMiddleware({app})
+});
 // const io = require ('socket.io')(server, {cors:{origin: "*"}})
-await server.start();
+// await server.start();
 
 // const io = require('socket.io')(5000)
 
@@ -43,9 +47,9 @@ await server.start();
 // })
 
 
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
-server.applyMiddleware({ app });
+// server.applyMiddleware({ app });
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
