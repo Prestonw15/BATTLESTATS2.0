@@ -6,6 +6,8 @@ import Footer from '../components/Footer';
 import styles from '../assets/css/steam.css';
 
 const Steam = () => {
+
+    
         return ( <>
     <div className='container'>
         <Navbar/>
