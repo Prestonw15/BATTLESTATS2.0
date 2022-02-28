@@ -12,7 +12,7 @@ const Xbox = () => {
         <Navbar/>
 
         <section className={styles.hero} id="hero">
-            <img src={require('../assets/images/Xbox-Logo.wine.svg').default} alt="xbox Logo" class="cards" />
+            <img src={require('../assets/images/Xbox-Logo.wine.svg').default} alt="xbox Logo" className="cards" />
              <p className='tagline'>one site for all of your gaming stats&nbsp; &nbsp;</p>
          </section>
 
@@ -21,7 +21,7 @@ const Xbox = () => {
         <div className={styles.form} id="login">
             <form >
                 <label for="Username"> Enter XBOX Gamertag</label>
-                <input type="text" placeholder="XBOX Gamertag" name="username" id="Username" class="login-input"/>
+                <input type="text" placeholder="XBOX Gamertag" name="username" id="Username" className="login-input"/>
                     <p id="error"></p>
                     <button id="loginBtn" className='login-input' type="submit">Login</button>
             </form>

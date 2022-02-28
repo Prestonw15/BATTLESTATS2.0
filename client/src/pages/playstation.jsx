@@ -11,7 +11,7 @@ const PS = () => {
         <Navbar/>
         
         <section className='hero' id="hero">
-            <img src={require('../assets/images/playstation-logo.jpg').default} alt="playstation logo" class="cards" />
+            <img src={require('../assets/images/playstation-logo.jpg').default} alt="playstation logo" className="cards" />
              <p className='tagline'>one site for all of your gaming stats&nbsp; $nbsp;</p>
              </section>
         <h3>New Users, sign in with your playstation username</h3>
@@ -19,7 +19,7 @@ const PS = () => {
         <div className='form' id="login">
             <form>
                 <label for="Username"> Enter Playstation Username</label>
-                <input type="text" placeholder="playstation Username" name="username" id="Username" class="login-input"/>
+                <input type="text" placeholder="playstation Username" name="username" id="Username" className="login-input"/>
                     <p id="error"></p>
                     <button id="loginBtn" className='login-input' type="submit">Login</button>
             </form>
