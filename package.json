@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/Prestonw15/BATTLESTATS2.0#readme",
   "dependencies": {
+    "concurrently": "^7.0.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
-
   }
 }
