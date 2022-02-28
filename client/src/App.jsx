@@ -8,7 +8,7 @@ import Xbox from './pages/xbox';
 import Playstation from './pages/playstation';
 import Messaging from './pages/messaging';
 import Signup from './pages/signup';
-import useLocalStorage from '../hooks/userLocalStorage';
+// import useLocalStorage from '../hooks/userLocalStorage';
 
 
 const httpLink = createHttpLink({
@@ -19,9 +19,12 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 function App() {
+
   const [user, setUser] = useState({ token: '', author: null });
   const [id, setId] = useLocalStorage()
-  const [user] = useState({ token: '', author: null });
+  // const [id, setId] = useLocalStorage()
+  const [user] = useState({ token: '' });
+  console.log(user);
   return (
     <ApolloProvider client={client}>
     <Router>
