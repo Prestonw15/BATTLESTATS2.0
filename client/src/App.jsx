@@ -8,6 +8,8 @@ import Xbox from './pages/xbox';
 import Playstation from './pages/playstation';
 import Messaging from './pages/messaging';
 import Signup from './pages/signup';
+import useLocalStorage from '../hooks/userLocalStorage';
+
 
 const httpLink = createHttpLink({
   uri: '/graphql'
@@ -17,6 +19,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 function App() {
+  const [user, setUser] = useState({ token: '', author: null });
+  const [id, setId] = useLocalStorage()
   const [user] = useState({ token: '', author: null });
   console.log(user);
   return (

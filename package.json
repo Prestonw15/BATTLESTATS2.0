@@ -4,6 +4,7 @@
   "description": "It's the NEW and Improved battlestats Now WITH a Backend and implemented Messaging to communicate with all your friends",
   "main": "index.js",
   "scripts": {
+    "devStart": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "develop": "concurrently \"cd server && npm run start\" \"cd client && npm start\"",
     "build": "cd client && npm run build",
@@ -21,6 +22,10 @@
   },
   "homepage": "https://github.com/Prestonw15/BATTLESTATS2.0#readme",
   "dependencies": {
+    "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
 
   }
 }
