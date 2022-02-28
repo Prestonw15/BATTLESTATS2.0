@@ -1,9 +1,6 @@
 {
   "name": "battlestats",
   "version": "1.0.0",
-  "engines": {
-    "node": "6.11.1"
-  },
   "description": "It's the NEW and Improved battlestats Now WITH a Backend and implemented Messaging to communicate with all your friends",
   "main": "index.js",
   "scripts": {
