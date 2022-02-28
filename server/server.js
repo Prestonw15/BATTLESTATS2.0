@@ -5,6 +5,7 @@ import { typeDefs, resolvers } from './graphql/index.js';
 import auth from './utils/auth.js';
 import db from './db/index.js';
 import { authenticate } from '@xboxreplay/xboxlive-auth';
+import path from 'path';
 
 authenticate('prestonwatson.15@gmail.com', '')
 	.then(console.info)
@@ -46,7 +47,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 server.applyMiddleware({ app });
 
-
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
 db.connection.once("open", () => {
   app.listen(PORT, () => {
     console.log(`API server running on port ${PORT}!`);
