@@ -21,9 +21,9 @@ const client = new ApolloClient({
 function App() {
 
   const [user, setUser] = useState({ token: '', author: null });
-  const [id, setId] = useLocalStorage()
+
   // const [id, setId] = useLocalStorage()
-  const [user] = useState({ token: '' });
+
   console.log(user);
   return (
     <ApolloProvider client={client}>
